@@ -35,7 +35,7 @@ docker run -d --name jaeger \
   jaegertracing/all-in-one:1.24
 ```
 
-Run with javaagent and zipkin
+Run with javaagent and jaeger
 ```
 java \
 -javaagent:opentelemetry-javaagent-all.jar \
