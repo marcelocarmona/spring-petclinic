@@ -59,7 +59,11 @@ java \
 -Dotel.traces.exporter=zipkin \
 -jar target/spring-petclinic-2.4.5.jar
 ```
+
+You can access jaeger here: http://localhost:16686/
+
 You can access zipkin here: http://localhost:9411/
+
 You can then access petclinic here: http://localhost:8080/
 
 <img width="1042" alt="petclinic-screenshot" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
