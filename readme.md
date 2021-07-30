@@ -6,13 +6,27 @@
 ## Running petclinic locally
 Petclinic is a [Spring Boot](https://spring.io/guides/gs/spring-boot) application built using [Maven](https://spring.io/guides/gs/maven/). You can build a jar file and run it from the command line:
 
-### build
+### Build
 ```
 git clone https://github.com/spring-projects/spring-petclinic.git
 cd spring-petclinic
 ./mvnw package
 ```
+
+### OpenTelemetry
+Then, download the latest OpenTelemetry Java Agent:
+```
+curl -OL https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar
+```
+
 ### Run with opentelemetry and zipkin
+
+Zipkin as the backend
+```
+docker run -it --rm -p 9411:9411 openzipkin/zipkin
+```
+
+Run with javaagent and zipkin
 ```
 java \
 -javaagent:opentelemetry-javaagent-all.jar \
@@ -20,7 +34,7 @@ java \
 -Dotel.traces.exporter=zipkin \
 -jar target/spring-petclinic-2.4.5.jar
 ```
-
+You can access zipkin here: http://localhost:9411/
 You can then access petclinic here: http://localhost:8080/
 
 <img width="1042" alt="petclinic-screenshot" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
